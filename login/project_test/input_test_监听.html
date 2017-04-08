@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="../js/jquery-1.8.3.min.js"></script>
+    <script type="text/javascript">
+        // Firefox, Google Chrome, Opera, Safari, Internet Explorer from version 9
+        function OnInput (event) {
+            alert ("The new content: " + event.target.value);
+        }
+        // Internet Explorer
+        function OnPropChanged (event) {
+            if (event.propertyName.toLowerCase () == "value") {
+                alert ("The new content: ie--- " + event.srcElement.value);
+            }
+        }
+        $('input').on('input propertychange', function() {
+            alert($(this).val().length + ' characters');
+        });
+    </script>
+</head>
+<body>
+    Please modify the contents of the text field.
+    <input type="text" oninput="OnInput (event)" onpropertychange="OnPropChanged (event)" value="Text field" />
+</body>
+</html>

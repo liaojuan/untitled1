@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>登录</title>
+    <style>
+        .body-login{
+            /*width: 100%;
+            height: 100%;*/
+            width: 720px;
+            height: 1280px;
+            margin-left: auto;
+            margin-right: auto;
+            border: 5px solid red;
+        }
+        .ad_img{
+            width: 100%;
+            height: 320px;
+        }
+        .content-text{
+            width: auto;
+            height: 196px;
+            margin-top: 60px;
+            background-color: #ffffff;
+        }
+        .content-text-phone{
+            width: auto;
+            height: 28px;
+            text-align: left;
+            margin-left: 25px;
+            padding-top: 30px;
+            padding-bottom: 30px;
+        }
+        .content-text-phone-name{
+            font-family: 楷体;
+            font-size: 28px;
+        }
+        .content-text-phone-num{
+            font-family: 华文宋体;
+            font-size: 28px;
+            margin-left: 40px;
+            border: 0px;
+            width: 80%;
+        }
+        .login-button{
+            margin-top: 60px;
+            margin-left: 25px;
+            margin-right: 25px;
+            width: 90%;
+            height: 80px;
+            border: 0px;
+            background-color: #bfbfbf;
+            color: #ffffff;
+            font-size: 32px;
+            font-family: 宋体;
+            border-radius: 8px;
+        }
+        .login-button:hover{
+            background-color: #ff0000;
+        }
+        .login-button:focus{
+            background-color: #00ff00;
+        }
+        .login-button:active{
+            background-color: #000000;
+        }
+    </style>
+    <script  src="../js/jquery-1.11.1.min.js">
+    </script>
+    <script>
+        function login() {
+            $.ajax({
+                //提交数据的类型 POST GET
+                type:"POST",
+                //提交的网址
+                url:"http://papi.dibugroup.net/login",
+                //提交的数据
+                data:{username:"15208392243",
+                    password:"",
+                    vcode:"103756"},
+                //返回数据的格式
+                datatype: "json",//"xml", "html", "script", "json", "jsonp", "text".
+                //在请求之前调用的函数
+                beforeSend:function(){$("#msg").html("logining");},
+                //成功返回之后调用的函数
+                success:function(data){
+                    $("#msg").html(decodeURI(data));
+                }   ,
+                //调用执行后调用的函数
+                complete: function(XMLHttpRequest, textStatus){
+                    alert(XMLHttpRequest.responseText);
+                    alert(textStatus);
+                    //HideLoading();
+                },
+                //调用出错执行的函数
+                error: function(){
+                    //请求出错处理
+                }
+            });
+        }
+        function forget_password() {
+            window.location.href = '../h5/forget_password.html';
+        }
+    </script>
+</head>
+
+<!--在 HTML 4.01 中，不赞成使用 body 元素的 bgcolor 属性；在 XHTML 1.0 Strict DTD 中，不支持 body 元素的 bgcolor 属性。
+请使用 CSS 代替。
+CSS 语法：<body style="background-color:#E6E6FA">-->
+<body class="body-login" style="background: #f0f0f0;text-align: center">  <!--style="text-align:center;"-->
+
+<img class="ad_img" src="../image/login_title_background.png" align="center"/>
+
+<div class="content-text">
+    <div class="content-text-phone">
+        <label class="content-text-phone-name">手机号</label>
+        <input class="content-text-phone-num" id="phone-num" type="tel" placeholder="请输入手机号"  maxlength="11">
+        <!--<label style="font-family: 楷体; font-size: 28px">手机号</label>-->
+        <!--去掉textArea的边框style='overflow:auto; background-attachment: fixed; background-repeat: no-repeat; border-style: solid; border-color: #FFFFFF'
+        去掉input的边框 style='border-left:0px;border-top:0px;border-right:0px;border-bottom:1px ' -->
+        <!--placeholder 属性提供可描述输入字段预期值的提示信息（hint）。该提示会在输入字段为空时显示，并会在字段获得焦点时消失。-->
+        <!--<input class="content-text-phone-num" type="tel" style="font-size: 28px; padding-left: 40px" placeholder="请输入手机号">-->
+        <!--size="40"  老的浏览器不能用-->
+    </div>
+    <hr color="#e8e8e8" style="margin-left: 25px"/>
+    <div class="content-text-phone">
+        <label class="content-text-phone-name">密&nbsp;&nbsp;码</label>
+        <input class="content-text-phone-num" type="password" placeholder="请输入密码" maxlength="6">
+    </div>
+</div>
+
+<button class="login-button" onclick="login()">登录</button>
+<!--onclick=javascript:alert(document.getElementById('phone-num').value)-->
+<!--1.普通状态2，鼠标hover状态  3.active 点击状态  4.focus 取得焦点状态
+active 要在后面 否则会被hover覆盖
+-->
+
+<div style="margin-right: 25px; margin-top: 30px; text-align: right">
+    <label style="color: #ff6636; font-size: 28px;font-family: 楷体" onclick="forget_password()">忘记密码？</label>
+</div>
+<div style="margin-top: 320px;">
+    <label style="color: #ff6636; font-size: 40px;">成为代步司机</label>
+</div>
+</body>
+</html>

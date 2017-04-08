@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        .navItem {
+            width: 100%;
+            padding-top: 25px;
+            text-align: center
+        }
+        .navItem li {
+            display: inline-block;
+            font-size: 1.25em;
+            height: 40px;
+            list-style-type:none;
+            border: dashed red 1px;
+        }
+        .navItem li.back {
+            position: absolute;
+            left: 10px;
+            border: dashed black 1px;
+        }
+        .navItem li.navTitle {
+            padding-left: 0;
+            border: dashed blue 1px;
+        }
+        /*.navItem li.search {position: absolute; left: 68.5%}*/
+        /*.navItem li.person {position: absolute; right: 10px}*/
+    </style>
+</head>
+<body style="width: 720px; height: 96px; border: 3px solid red;text-align: center ">
+<div style="text-align: center">
+    <ul class="navItem">
+        <li class="back" ng-click="goBack()">
+            <img src="../image/left.png">
+            <label> 忘记密码</label>
+        </li>
+        <li class="navTitle">忘记密码</li>
+        <!--<li class="search" ng-click="search()">-->
+        <!--<img src="img/12.png">-->
+        <!--</li>-->
+        <!--<li class="person" ng-click="person()">-->
+        <!--<img src="img/10.png">-->
+        <!--</li>-->
+    </ul>
+</div>
+</body>
+</html>

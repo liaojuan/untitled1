@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <!--HTML页面跳转的5种方法 我们采用number one,two,three,four,fire-->
+
+    <!--number one html的实现
+    优点：简单
+    缺点：Struts Tiles中无法使用-->
+    <!-- 以下方式只是刷新不跳转到其他页面 -->
+    <!--<meta http-equiv="refresh" content="10">-->
+    <!-- 以下方式定时转到其他页面 -->
+    <!--<meta http-equiv="refresh" content="5; url=../h5/forget_password.html">-->
+    <title>Title</title>
+
+    <!--number two javascript的实现
+    优点：灵活，可以结合更多的其他功能
+    缺点：受到不同浏览器的影响
+    -->
+    <!--<script language="javascript" type="text/javascript">
+        //以下方式直接跳转
+        //        window.location.href='../h5/forget_password.html';
+        // 以下方式定时跳转
+        //        setTimeout("javascript:location.href='../h5/forget_password.html'",5000);
+        //        setTimeout("location.href='../h5/forget_password.html'",5000);
+    </script>-->
+
+    <!--number three   结合了倒数的javascript实现（IE）
+        优点：更人性化
+        缺点：firefox不支持（firefox不支持span、div等的innerText属性）
+     -->
+    <!--<span id="totalSecond">5</span>-->
+    <!--<script language="JavaScript" type="text/javascript">-->
+    <!--var second = totalSecond.innerText;-->
+    <!--setInterval("redirect()", 1000)-->
+
+    <!--function redirect() {-->
+    <!--totalSecond.innerText = &#45;&#45;second;-->
+    <!--if(second < 0)-->
+    <!--location.href='../h5/forget_password.html';-->
+    <!--}-->
+    <!--</script>-->
+
+    <!--number three'     结合了倒数的javascript实现（firefox）
+
+    -->
+    <!--<span id="totalSecond">5</span>-->
+    <!--<script language="JavaScript" type="text/javascript">-->
+    <!--var second = document.getElementById('totalSecond').textContent;-->
+    <!--setInterval("redirect()", 1000);-->
+    <!--function redirect() {-->
+    <!--document.getElementById('totalSecond').textContent = &#45;&#45;second;-->
+    <!--if (second < 0) location.href='../h5/forget_password.html';-->
+    <!--}-->
+    <!--</script>-->
+
+    <!--number four     解决Firefox不支持innerText的问题
+
+    -->
+    <!--<span id="totalSecond">5</span>-->
+    <!--<script language="javascript" type="text/javascript">-->
+        <!--if(navigator.appName.indexOf("Explorer") > -1){-->
+            <!--document.getElementById('totalSecond').innerText = "my text innerText";-->
+        <!--} else{-->
+            <!--document.getElementById('totalSecond').textContent = "my text textContent";-->
+        <!--}-->
+    <!--</script>-->
+
+    <!--number fire     整合3)和3')-->
+    <span id="totalSecond">5</span>
+
+    <script language="javascript" type="text/javascript">
+        var second = document.getElementById('totalSecond').textContent;
+
+        if (navigator.appName.indexOf("Explorer") > -1)  {
+            second = document.getElementById('totalSecond').innerText;
+        } else {
+            second = document.getElementById('totalSecond').textContent;
+        }
+
+        setInterval("redirect()", 1000);
+        function redirect() {
+            if (second < 0) {
+                location.href = '../h5/forget_password.html';
+            } else {
+                if (navigator.appName.indexOf("Explorer") > -1) {
+                    document.getElementById('totalSecond').innerText = second--;
+                } else {
+                    document.getElementById('totalSecond').textContent = second--;
+                }
+            }
+        }
+    </script>
+</head>
+<body>
+
+</body>
+</html>
