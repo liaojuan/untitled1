@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="../js/jquery-1.8.3.min.js"></script>
+    <script type="text/javascript">
+        $(function () {
+            $("#a").bind('input porpertychange', function () {
+//                alert("---------e------");
+//                console.log("----------e---");
+                var  thisTxt = $("#a").val();
+                var s = $(this).siblings("p").html(thisTxt);
+                alert("---------------"+s + "---" + thisTxt);
+            });
+            alert()
+        });
+    </script>
+</head>
+<body>
+    <input type="text" id="a">
+    <!--<input type="text" oninput=" " onpropertychange=""  value="Text field" />-->
+</body>
+</html>

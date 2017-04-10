@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <!--集合 oninput & onpropertychange 监听输入框内容变化的示例代码如下：-->
+    <script type="text/javascript">
+        // Firefox, Google Chrome, Opera, Safari, Internet Explorer from version 9
+        function OnInput(event) {
+            alert ("The new content: s--" + event.target.value);
+        }
+        // Internet Explorer
+        function OnPropChanged (event) {
+            if (event.propertyName.toLowerCase () == "value") {
+                alert ("The new content: " + event.srcElement.value);
+            }
+        }
+    </script>
+</head>
+<body>
+Please modify the contents of the text field.
+<input type="text" oninput="OnInput (event)" onpropertychange="OnPropChanged (event)" value="Text field" />
+</body>
+</html>
