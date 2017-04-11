@@ -97,3 +97,21 @@
 </body>
 </html>
 -->
+
+<!--
+ 1.首先来说button按钮不可点击
+1.1第一种（html代码中控制）
+<button id="button_id"  disabled="disabled">按钮不可点击</button>
+1.2第二种（jquery控制）
+$("#button_id").attr('disabled',true);
+
+2.按钮可点击
+2.1第一种（html代码中控制，默认）
+<button id="button_id">按钮可点击</button>
+2.2第二种（jquery控制）
+$("#button_id").attr('disabled',false);
+
+<input type="button" disabled>  不可点击
+<input type="button" disabled="true">  不可点击
+<input type="button" disabled="disabled"> 不可点击
+-->
