@@ -1,7 +1,26 @@
+///<reference path ="../js/jquery-1.11.1.min.js">
+// <execScript("../js/jquery-1.11.1.min.js")
+// var script = document.createElement("script");
+// script.type = "text/javascript";
+// script.src = "../js/jquery-1.11.1.min.js"
+// document.getElementsByTagName('head')[0].appendChild(script);
+
+//ajax请求
 /**
  * Created by liao on 2017/4/10.
  */
-//ajax请求
+// importScripts("jquery-1.11.1.min.js")
+// function includeScript(file) {
+//     document.write('<script type="text/JavaScript" src="'+file+'"></script>');
+// }
+// includeScript("../js/jquery-1.11.1.min.js");
+// ~(function($,undefined){
+// //你的js
+//
+// }(jQuery,this))
+// document.writeln('<meta name="renderer" content="webkit">');
+// document.writeln('<link href="../js/jquery-1.11.1.min.js" type="text/JavaScript" rel="stylesheet">');
+
 var  ajaxRequest =  function () {};
 
 ajaxRequest.prototype = {

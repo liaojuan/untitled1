@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <!--1.jquery.js路径要写在你自己的js上面
+        2.最好把jq和自己的js都写在body后面
+        3.没了，如果为了点效率和没有那么多全局的话可以在你的js里面这样写
+        ~(function($,undefined){
+        //你的js
+        ...
+        }(jQuery,this))-->
+    <!--这样就可以了，自己的js文件里面也可以用jquery里面的方法了-->
+    <!--js文件中没有jquery ，一样也可以使用jquery 的，
+        <script  src="jquery.2.0.0.js"></script>//你先引入了jquery的文件
+        <script src="my.js"></script>//这里你的js文件中就可以使用jquery的方法了，而不是要在这里面有，但是顺序不能错，一定要先导入jquery-->
+    <script  src="../js/jquery-1.11.1.min.js"></script>
+    <script src="../js/base_network_request.js"></script>
+    <script>
+        var params = {
+            username:"15208392243",
+            password:"",
+            vcode:"103756"
+        };//创建json格式参数
+
+        var url = "http://papi.dibugroup.net/login";
+
+        submit(url,params);
+
+        //表单提交
+        function submit(url,params){
+
+            var ajaxReq = new ajaxRequest();
+            ajaxReq.url = url;
+            ajaxReq.dataType = "json";
+            ajaxReq.data = params;
+
+            ajaxReq.setUp();//初始化ajax
+
+            var requst = ajaxReq.requst();
+
+            requst.done(function(result) {//回调
+                console.log(typeof result);
+                console.log(result );
+
+            });
+
+            requst.error(function(data){
+                alert("网络异常!");
+            });
+
+        }
+    </script>
+</head>
+<body>
+
+</body>
+</html>
