@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>button绑定事件的方式</title>
+    <script src="../js/jquery-1.11.1.min.js"></script>
+    <script type="text/javascript">
+        <!-- http://blog.csdn.net/kenny_cn/article/details/51490742  HTML中几种为<button>绑定点击事件的方式比较-->
+        <!--一.使用jQuery进行绑定 $('#btn_submit').click(function(){});-->
+//        $(function(){
+//            $("#btn_submit").click(function () {
+//                alert("---我点击了---------");
+//                console.log("-------正在点击---------")
+//            });
+//        });
+        <!-- onclick点击事件-->
+        function btnAction()
+        {
+            alert("---我点击了---------111111");
+            console.log("-------正在点击---------111111111")
+        }
+        <!--使用原生js 处理点击事件 -->
+//        <!--http://www.2cto.com/kf/201612/572311.html 按钮点击事件的实现方式---原生js-->
+        window.onload = function () {
+            document.getElementById("btn_submit").addEventListener('click', function(){
+                alert("---我点击了---------111111");
+                console.log("-------正在点击---------111111111")
+            }, false);
+        }
+    </script>
+</head>
+<body>
+<button type="submit" id="btn_submit" onclick="btnAction()"> submit </button>
+</body>
+</html>
+<!-- 使用原生js  处理的话
+一定要把script代码块写在body的尾部，但是如果说硬是要写在head标签内的话，一定要在window.load里面，或者在jq的另一种写法$(document).ready()。
+如下方代码所示。这个是代码执行顺序的原因。
+-->
+<!--
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>test1</title>
+
+</head>
+<body>
+<input  id="button" type="button" value="点击" >
+<script>
+    var btn = document.getElementById("button");
+    btn.onclick =function(){
+        alert("你点击了按钮哦！");
+    }
+</script>
+</body>
+</html>
+-->
+
+<!--
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>test1</title>
+
+    <script>
+        window.onload = function(){
+            var btn = document.getElementById("button");
+            btn.onclick =function(){
+                alert("你点击了按钮哦！");
+            }
+        }
+    </script>
+</head>
+<body>
+<input  id="button" type="button" value="点击" >
+</body>
+</html>
+-->
+
+<!--
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>test1</title>
+    <script>
+        window.onload = function(){
+            var btn = document.getElementById("button");
+            btn.addEventListener('click',function() {alert('你点击了按钮哦！')},false);
+        }
+    </script>
+</head>
+<body>
+<input  id="button" type="button" value="点击" >
+</body>
+</html>
+-->
