@@ -14,6 +14,7 @@
             val.removeAttribute("disabled");
             val.value="免费获取验证码";
             countdown = 60;
+            return;
         } else {
             val.setAttribute("disabled", true);
             val.value="重新发送(" + countdown + ")";
@@ -26,3 +27,26 @@
 </script>
 </body>
 </html>
+
+<!--<script type="text/javascript" charset="utf-8">-->
+    <!--$(function(){-->
+        <!--//获取短信验证码-->
+        <!--var validCode=true;-->
+        <!--$(".T-getCode").click (function  () {-->
+            <!--var time=60;-->
+            <!--var $code=$(this);-->
+            <!--if (validCode) {-->
+                <!--validCode=false;-->
+                <!--var t=setInterval(function  () {-->
+                    <!--time&#45;&#45;;-->
+                    <!--$code.html(time+"秒");-->
+                    <!--if (time==0) {-->
+                        <!--clearInterval(t);-->
+                        <!--$code.html("重新获取");-->
+                        <!--validCode=true;-->
+                    <!--}-->
+                <!--},1000)-->
+            <!--}-->
+        <!--})-->
+    <!--})-->
+<!--</script>-->
