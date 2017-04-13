@@ -5,8 +5,19 @@
 
 var Common = {};
 
-Common.apiAjax = function (options) {
+Common.apiAjaxPost = function (url, datas, type, header) {
+    $.ajax({
+        url : url,
+        type : type,
+        data : datas,
+        dataType : "json",
+        headers: header,
+        success : function(data) {
+            console.log(data );
+        },
+        error : function(event, status, msg) {
+        }
+    });
 
-    options.headers = {'DIBU_ACCESS_TOKEN': access_token, 'APP_VERSION': 1, 'CHANNEL': 'H5', 'CLIENT_TYPE': 'driver'};
 
 }
