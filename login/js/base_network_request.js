@@ -39,6 +39,14 @@ ajaxRequest.prototype = {
             contentType : 'application/x-www-form-urlencoded; charset=UTF-8'
         });
     },
+    // header : function () {
+    //     CHANNEL : "ANDROID"
+    // },
+
+    // setHeader : function () {
+        // CHANNEL : "ANDROID",
+        //     CLIENT_TYPE : "driver",
+    // },
 
     //执行请求
     requst: function () {
@@ -50,3 +58,8 @@ ajaxRequest.prototype = {
     }
 
 };
+
+
+ajaxReques.postJosn = {
+
+}
