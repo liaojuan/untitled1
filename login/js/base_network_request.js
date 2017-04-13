@@ -58,8 +58,3 @@ ajaxRequest.prototype = {
     }
 
 };
-
-
-ajaxReques.postJosn = {
-
-}
