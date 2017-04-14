@@ -1,0 +1,69 @@
+.public_phone_model{
+    width: 100%;
+    height: auto;
+    background: #ffffff;
+    margin-top: 20px;
+}
+.public_line_model{
+    width: auto;
+    height: 88px;
+    margin-left: 25px;
+    text-align: left;
+}
+.phone_hint_text {
+    width:25%;
+    float:left;
+    margin-top: 30px;
+    display:inline;
+}
+.sms_code_bt{
+    width: 23%;
+    float: left;
+    display: inline;
+    margin-top: 15px;
+}
+.input_phone_num{
+    width: 48%;
+    float: left;
+    display: inline;
+}
+.public_text_style{
+    width: 100%;
+    font-size: 28px;
+    font-family: 楷体;
+}
+.public_input_style{
+    width: 100%;
+    height: 88px;
+    border: 0px;
+    font-size: 28px;
+}
+.public_sms_code_bt{
+    width: 100%;
+    height: 60px;
+    font-size: 26px;
+    border:0px;
+    background: #bfbfbf;
+    border-radius: 8px;
+    color: #ffffff;
+}
+.base_input_style {
+    width:75%;
+    float:left;
+    display:inline;
+}
+.base_img_style{
+    width: 60%;
+    float: left;
+    display: inline;
+}
+.base_input_style_65{
+    width:65%;
+    display:inline;
+}
+.base_input_style_10{
+    width:10%;
+    float:right;
+    margin-top: 30px;
+    display:inline;
+}
