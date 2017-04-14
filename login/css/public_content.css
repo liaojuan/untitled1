@@ -37,6 +37,7 @@
     height: 88px;
     border: 0px;
     font-size: 28px;
+    font-family: 楷体;
 }
 .public_sms_code_bt{
     width: 100%;
@@ -59,11 +60,53 @@
 }
 .base_input_style_65{
     width:65%;
-    display:inline;
+    float: right;
+    text-align: right;
+    margin-top: 30px;
+    display: inline;
 }
 .base_input_style_10{
     width:10%;
-    float:right;
     margin-top: 30px;
-    display:inline;
+    float: right;
+    display: inline;
+}
+.base_button{
+    margin-top: 30px;
+    margin-left: 24px;
+    margin-right: 24px;
+    width: 90%;
+    height: 80px;
+    border: 0px;
+    border-radius: 8px;
+    background-color: #bfbfbf;
+    color: #ffffff;
+    font-size: 32px;
+    font-family: 宋体;
+}
+.law_style{
+    margin-top: 30px;
+    text-align: left
+}
+.law_img{
+    width:auto;
+    float: left;
+    display: inline
+}
+.law_read{
+    width: auto;
+    float: left;
+    display: inline;
+    margin-left: 9px;
+    margin-top: 5px
+}
+.law_read_label{
+    margin-left: 8px;
+    width: auto;
+}
+.legal_provisions{
+    width: auto;
+    float: left;
+    display: inline;
+    margin-top: 5px
 }
