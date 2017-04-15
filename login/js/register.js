@@ -1,8 +1,6 @@
 /**
  * Created by liao on 2017/4/14.
  */
-var Common = {};
-Common.domain = 'http://papi.dibugroup.net';
 var params;
 /**
  * 判断密码是否可见,默认不可见
@@ -104,7 +102,6 @@ $(function () {
 });
 
 
-
 /**
  * 创建发送验证码参数
  * @param numPhone
@@ -117,63 +114,6 @@ function setCode(numPhone, types) {
     };//创建json格式参数
 }
 
-/**
- * 通用获取验证码
- * @param url
- * @param params
- */
-function getSmsCode(url , params, v) {
-    console.log("-----" + v.id);
-    $.ajax({
-        url : Common.domain + "/" + url,
-        type : "post",
-        data : params,
-        dataType : "json",
-        // headers: {'DIBU_ACCESS_TOKEN': 'access_token', 'APP_VERSION': 1, 'CHANNEL': 'ANDROID', 'CLIENT_TYPE': 'driver'},
-        success : function(data) {
-            if(data != null){
-                if(data.status_code == 1) {
-                    settime(data.data.exprie, v);
-                }else {
-                    alert(data.message);
-                }
-            }else{
-                alert("获取验证码失败")
-            }
-        },
-        error : function(event, status, msg) {
-        }
-    });
-}
-
-/**
- * 倒计时方法
- *
- * @param countdown
- */
-function settime(countdown, v) {
-    var s = v;
-    // $(this).attr('id', s.id);
-    // var thisBt = document.getElementById(v);
-    console.log("----"+ s.id , "-----" ,s)
-    if (countdown == 0) {
-        console.log("-----==0----" + countdown)
-        // v.css('color','#ffffff').css('background', '#ff6636');
-        $('#' + s.id).attr('disabled', false);
-        $('#' + s.id).text("获取验证码");
-        return;
-    } else {
-        console.log("-----==countdown----" + countdown)
-        // v.css('color','#ffffff').css('background', '#ff6636');
-        $('#' + s.id).attr('disabled', true);
-        $("#" + s.id).text(countdown + "(s)");
-        countdown--;
-    }
-    setTimeout(function() {
-        settime(countdown, v)
-    },1000)
-}
-
 
 function setRegister(username, password, vcode) {
     params = {
@@ -182,6 +122,7 @@ function setRegister(username, password, vcode) {
         vcode:vcode
     };//创建json格式参数
 }
+
 /**
  * 注册
  * @param url
