@@ -4,6 +4,11 @@
 var Common = {};
 Common.domain = 'http://papi.dibugroup.net';
 var params;
+/**
+ * 判断密码是否可见,默认不可见
+ * @type {boolean}
+ */
+var isShow=true;
 
 $(function () {
     $('#back_img_id').click(function () {
@@ -19,21 +24,47 @@ $(function () {
         getSmsCode('vcode', params, v)
         // getSmsCode('vcode', params, "'#sms_code_button'")
     });
-    
+    //密码可见不可见的
+    $('#show_close_password').click(function () {
+        var v = document.getElementById("input_password_num");
+        var iv = document.getElementById("show_close_password");
+        if (isShow) {
+            v.type="text";
+            iv.src = "../image/show_password.png";
+            isShow=false;
+        }else{
+            v.type="password";
+            isShow=true;
+            iv.src = "../image/look.png";
+        }
+    });
+    //查看推荐码
+    $('img_help').click(function () {
+        window.location.href = '../h5/help.html';
+    });
+    //点击button
+    $('sure_register_button').click(function () {
+
+    });
+
+    //电话号码输入框发生改变
     $("#input_phone_num").bind('input porpertychange',function(){
         //获取input的值
         var thisInput = $('#input_phone_num').val();
         if(thisInput.length < 11){
             $('#sms_code_button').css('color','#ffffff').css('background', '#bfbfbf'); //修改button的背景色和字体的颜色
             $('#sms_code_button').attr('disabled', true);
-            // checkOnclick();
+            checkOnclickButton();
         }else if(thisInput.length == 11){
             checkMonile(thisInput);
         }else if(thisInput.length > 11){
             alert("手机号码不能超过11位！");
-            // checkOnclick();
+            checkOnclickButton();
             return;
         }
+    });
+    $("#input_phone_num").bind('input porpertychange',function(){
+
     });
 });
 
@@ -50,7 +81,7 @@ function checkMonile(str) {
             //电话号码争取
             $('#sms_code_button').attr('disabled', false);
             $('#sms_code_button').css('color','#ffffff').css('background', '#ff6636');
-            // checkOnclick();
+            checkOnclickButton();
         }else {
             alert("请输入正确电话号码");
             $('#sms_code_button').attr('disabled', true);
@@ -58,16 +89,18 @@ function checkMonile(str) {
     }
 }
 
-// /**
-//  * 判断button键是否可以点击
-//  */
-// function checkOnclick() {
-//     if($('#phone_number').val().length == 11 && $('#sms_code').val().length == 6 && $('#id_card_num').val().length > 14 && $('#new_password').val().length > 5){
-//         $('#sure_bt').css('color','#ffffff').css('background', '#ff6636');
-//     }else{
-//         $('#sure_bt').css('color','#ffffff').css('background', '#bfbfbf');
-//     }
-// }
+/**
+ * 判断button键是否可以点击
+ */
+function checkOnclickButton() {
+    if($('#input_phone_num').val().length == 11 && $('#input_sms_code').val().length == 6 && $('#input_password_num').val().length > 5){
+        $('#sure_register_button').css('color','#ffffff').css('background', '#ff6636');
+        $('#sure_register_button').attr('disabled', false);
+    }else{
+        $('#sure_register_button').css('color','#ffffff').css('background', '#bfbfbf');
+        $('#sure_register_button').attr('disabled', true);
+    }
+}
 
 /**
  * 创建发送验证码参数
@@ -123,13 +156,13 @@ function settime(countdown, v) {
     if (countdown == 0) {
         console.log("-----==0----" + countdown)
         // v.css('color','#ffffff').css('background', '#ff6636');
-        // v.attr('disabled', false);
+        $('#' + s.id).attr('disabled', false);
         $('#' + s.id).text("获取验证码");
         return;
     } else {
         console.log("-----==countdown----" + countdown)
         // v.css('color','#ffffff').css('background', '#ff6636');
-        // v.attr('disabled', true);
+        $('#' + s.id).attr('disabled', true);
         $("#" + s.id).text(countdown + "(s)");
         countdown--;
     }
