@@ -54,7 +54,7 @@
                 <label class="public_text_style">密&nbsp;&nbsp;码</label>
             </div>
             <div class="base_img_style">
-                <input class="public_input_style" placeholder="请输入密码" id="input_password_num">
+                <input class="public_input_style" placeholder="请输入密码" id="input_password_num" minlength="6" maxlength="12">
             </div>
             <img src="../image/look.png" style="margin-top: 30px; margin-left: 30px; " id="show_close_password">
         </div>
@@ -90,13 +90,13 @@
 
     <div class="law_style">
         <div class="law_img">
-            <img src="../image/select_check_box.png" style="margin-left: 24px;">
+            <img src="../image/select_check_box.png" style="margin-left: 24px;" id="check_box_argee">
         </div>
         <div class="law_read">
             <label class="law_read_label">阅读并接受</label>
         </div>
         <div class="legal_provisions">
-            <label>《法律声明和隐私政策》</label>
+            <label style="color: #ff6636" id="read_legal_provisions">《法律声明和隐私政策》</label>
         </div>
     </div>
 </div>
